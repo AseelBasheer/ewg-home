@@ -1,8 +1,7 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { PlatformDashboard } from "@/components/platform-dashboard";
-import { WorkflowVisualization } from "@/components/workflow-visualization";
+import { ClientSections } from "@/components/client-sections";
 import { Services } from "@/components/services";
 import { Vision } from "@/components/vision";
 import { Contact } from "@/components/contact";
@@ -15,8 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <PlatformDashboard />
-        <WorkflowVisualization />
+        <ClientSections />
         <Services />
         <Vision />
         <Contact />
