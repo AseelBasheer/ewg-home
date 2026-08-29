@@ -8,7 +8,7 @@ export function Mission() {
     <section id="mission" className="py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             Our Mission
           </Badge>
           <p className="text-lg leading-8 text-muted-foreground sm:text-xl">

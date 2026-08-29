@@ -53,10 +53,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <Badge
-              variant="outline"
-              className="mb-6 px-4 py-1.5 text-xs font-medium tracking-widest uppercase"
-            >
+            <Badge variant="section" className="hero-label mb-6">
               Digital Infrastructure for Trade &amp; Enterprise
             </Badge>
           </motion.div>
@@ -65,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl lg:leading-tight"
+            className="section-title text-foreground lg:leading-tight"
           >
             We design secure digital platforms that{" "}
             <span className="text-primary">automate</span> complex operations,{" "}

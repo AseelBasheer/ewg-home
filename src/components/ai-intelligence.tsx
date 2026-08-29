@@ -58,10 +58,10 @@ export function AiIntelligence() {
     <section id="ai-intelligence" className="py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             AI &amp; Data Intelligence
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="section-title text-foreground">
             Turn Data Into Intelligence
           </h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">

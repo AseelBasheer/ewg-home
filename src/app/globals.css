@@ -152,6 +152,14 @@
     @apply text-primary;
   }
 
+  .section-title {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
+  }
+
+  .hero-label {
+    @apply text-sm uppercase tracking-widest sm:text-base md:text-lg;
+  }
+
   .glass-card {
     @apply rounded-xl border border-primary/30 bg-card text-foreground shadow-lg shadow-primary/5 backdrop-blur-md transition-all duration-300;
   }

@@ -9,8 +9,8 @@ export function CompanyVision() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <Badge
-            variant="outline"
-            className="mb-4 border-white/50 bg-background text-foreground"
+            variant="section"
+            className="mb-6 border-white/50 bg-background text-foreground"
           >
             Our Vision
           </Badge>

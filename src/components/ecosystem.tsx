@@ -19,10 +19,10 @@ export function Ecosystem() {
       <div className="hero-glow pointer-events-none absolute inset-0" />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             Our Approach
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="section-title text-foreground">
             Built for organizations that need more than software
           </h2>
           <p className="mt-6 text-base leading-7 text-muted-foreground">

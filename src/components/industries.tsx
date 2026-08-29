@@ -62,10 +62,10 @@ export function Industries() {
     <section id="industries" className="py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             Industries We Serve
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="section-title text-foreground">
             Digital Solutions for Complex Organizations
           </h2>
         </ScrollReveal>

@@ -41,10 +41,10 @@ export function Technology() {
     <section id="technology" className="py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             Our Core Technology
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="section-title text-foreground">
             Built on proven, secure foundations
           </h2>
         </ScrollReveal>

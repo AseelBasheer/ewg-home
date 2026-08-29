@@ -44,10 +44,10 @@ export function Contact() {
     <section id="contact" className="border-t border-border/60 bg-muted/30 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="section" className="mb-6">
             Contact Us
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="section-title text-foreground">
             Let&apos;s Build Your Digital Future
           </h2>
           <p className="mt-4 text-lg font-medium text-foreground">
