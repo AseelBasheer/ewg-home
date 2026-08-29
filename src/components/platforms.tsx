@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Building2,
   Database,
@@ -10,7 +12,8 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { cn } from "@/lib/utils";
 
 const platforms = [
   {
@@ -64,15 +67,20 @@ const platforms = [
 ];
 
 export function Platforms() {
+  const [activeId, setActiveId] = useState(platforms[0].id);
+  const active = platforms.find((p) => p.id === activeId) ?? platforms[0];
+  const ActiveIcon = active.icon;
+
   return (
-    <section id="platforms" className="border-t border-border/60 bg-muted/30 py-24">
+    <section id="platforms" className="section-glow relative border-t border-border/60 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 border-primary/40 bg-primary/10 text-primary">
             Our Platforms
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            One Digital Ecosystem. Multiple Business Solutions.
+            One Digital Ecosystem.{" "}
+            <span className="gradient-text">Multiple Business Solutions.</span>
           </h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
             East West Global develops modular platforms that can be customized to meet the
@@ -80,63 +88,77 @@ export function Platforms() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {platforms.map((platform, index) => {
-            const Icon = platform.icon;
+        <ScrollReveal delay={0.1} className="mt-12">
+          <div className="flex flex-wrap justify-center gap-2">
+            {platforms.map((platform) => {
+              const Icon = platform.icon;
+              const isActive = platform.id === activeId;
 
-            return (
-              <StaggerItem
-                key={platform.id}
-                className={index === 0 ? "lg:col-span-2" : undefined}
-              >
-                <article className="flex h-full flex-col rounded-xl border border-border/60 bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8">
-                  <div className="flex items-start gap-4">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${
-                        index % 2 === 0
-                          ? "bg-primary/10 text-primary"
-                          : "bg-gold/15 text-gold"
-                      }`}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold tracking-wide text-primary">
-                        {platform.name}
-                      </p>
-                      <h3 className="mt-1 text-lg font-semibold leading-snug text-foreground">
-                        {platform.tagline}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                    {platform.description}
-                  </p>
-
-                  {platform.capabilities && (
-                    <div className="mt-5">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-foreground/70">
-                        Key capabilities
-                      </p>
-                      <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                        {platform.capabilities.map((capability) => (
-                          <li
-                            key={capability}
-                            className="flex items-start gap-2 text-sm text-muted-foreground"
-                          >
-                            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" />
-                            <span>{capability}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              return (
+                <button
+                  key={platform.id}
+                  type="button"
+                  onClick={() => setActiveId(platform.id)}
+                  className={cn(
+                    "flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-300",
+                    isActive
+                      ? "border-primary/50 bg-primary/15 text-primary shadow-lg shadow-primary/10"
+                      : "border-border/60 bg-card/50 text-muted-foreground hover:border-primary/30 hover:text-foreground"
                   )}
-                </article>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
+                >
+                  <Icon className="h-4 w-4" />
+                  {platform.name}
+                </button>
+              );
+            })}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.15} className="mt-8">
+          <AnimatePresence mode="wait">
+            <motion.article
+              key={active.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-card glow-cyan p-8 sm:p-10"
+            >
+              <div className="flex items-start gap-5">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/15 text-primary">
+                  <ActiveIcon className="h-7 w-7" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold tracking-wide text-primary">{active.name}</p>
+                  <h3 className="mt-1 text-xl font-semibold leading-snug text-foreground sm:text-2xl">
+                    {active.tagline}
+                  </h3>
+                </div>
+              </div>
+
+              <p className="mt-5 text-base leading-7 text-muted-foreground">{active.description}</p>
+
+              {active.capabilities && (
+                <div className="mt-6">
+                  <p className="text-xs font-semibold tracking-wider text-silver uppercase">
+                    Key capabilities
+                  </p>
+                  <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                    {active.capabilities.map((capability) => (
+                      <li
+                        key={capability}
+                        className="flex items-center gap-2 rounded-lg border border-primary/10 bg-primary/5 px-3 py-2 text-sm text-foreground/90"
+                      >
+                        <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
+                        {capability}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </motion.article>
+          </AnimatePresence>
+        </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-16 text-center">
           <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
@@ -147,7 +169,10 @@ export function Platforms() {
             digital ecosystem.
           </p>
           <div className="mt-8">
-            <a href="#contact" className={buttonVariants({ size: "lg" })}>
+            <a
+              href="#contact"
+              className={cn(buttonVariants({ size: "lg" }), "btn-glow bg-primary hover:bg-primary/90")}
+            >
               Request a Platform Demonstration
             </a>
           </div>

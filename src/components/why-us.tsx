@@ -52,7 +52,7 @@ export function WhyUs() {
         <StaggerContainer className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, index) => (
             <StaggerItem key={reason.title}>
-              <div className="h-full rounded-xl border border-border/60 bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+              <div className="glass-card h-full p-6">
                 <div
                   className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg text-sm font-bold ${
                     index % 2 === 0

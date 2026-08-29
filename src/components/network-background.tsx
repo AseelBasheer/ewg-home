@@ -12,6 +12,7 @@ type Node = {
 
 export function NetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,28 +34,50 @@ export function NetworkBackground() {
     };
 
     const initNodes = () => {
-      const count = Math.min(50, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 12000));
+      const count = Math.min(60, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 10000));
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * canvas.offsetWidth,
         y: Math.random() * canvas.offsetHeight,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 2 + 1.5,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: Math.random() * 2 + 1,
       }));
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+
+    const handleMouseLeave = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
     };
 
     const draw = () => {
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
+      const mouse = mouseRef.current;
 
       ctx.clearRect(0, 0, w, h);
 
       for (const node of nodes) {
+        const dx = mouse.x - node.x;
+        const dy = mouse.y - node.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120 && dist > 0) {
+          node.vx -= (dx / dist) * 0.02;
+          node.vy -= (dy / dist) * 0.02;
+        }
+
         node.x += node.vx;
         node.y += node.vy;
+        node.vx *= 0.99;
+        node.vy *= 0.99;
 
         if (node.x < 0 || node.x > w) node.vx *= -1;
         if (node.y < 0 || node.y > h) node.vy *= -1;
+        node.x = Math.max(0, Math.min(w, node.x));
+        node.y = Math.max(0, Math.min(h, node.y));
       }
 
       for (let i = 0; i < nodes.length; i++) {
@@ -63,10 +86,10 @@ export function NetworkBackground() {
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 140) {
-            const alpha = (1 - dist / 140) * 0.15;
+          if (dist < 150) {
+            const alpha = (1 - dist / 150) * 0.25;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(26, 58, 107, ${alpha})`;
+            ctx.strokeStyle = `rgba(0, 180, 232, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -76,9 +99,16 @@ export function NetworkBackground() {
       }
 
       for (const node of nodes) {
+        const dx = mouse.x - node.x;
+        const dy = mouse.y - node.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const nearMouse = dist < 100;
+
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(26, 58, 107, 0.35)";
+        ctx.arc(node.x, node.y, nearMouse ? node.radius * 1.8 : node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = nearMouse
+          ? "rgba(0, 200, 240, 0.8)"
+          : "rgba(0, 180, 232, 0.45)";
         ctx.fill();
       }
 
@@ -95,9 +125,14 @@ export function NetworkBackground() {
       initNodes();
     };
 
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
+
     return () => {
       cancelAnimationFrame(animationId);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -105,7 +140,7 @@ export function NetworkBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-60"
+      className="pointer-events-auto absolute inset-0 h-full w-full opacity-70"
       aria-hidden
     />
   );

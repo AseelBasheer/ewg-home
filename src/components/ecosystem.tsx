@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
@@ -14,23 +15,24 @@ const chain = [
 
 export function Ecosystem() {
   return (
-    <section id="ecosystem" className="border-t border-border/60 bg-primary py-24 text-primary-foreground">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section id="ecosystem" className="relative border-t border-primary/20 bg-gradient-to-b from-primary/20 to-background py-24">
+      <div className="hero-glow pointer-events-none absolute inset-0" />
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <Badge
-            variant="secondary"
-            className="mb-4 border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground"
+            variant="outline"
+            className="mb-4 border-primary/40 bg-primary/10 text-primary"
           >
             Our Approach
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Built for organizations that need more than software
           </h2>
-          <p className="mt-6 text-base leading-7 text-primary-foreground/85">
+          <p className="mt-6 text-base leading-7 text-muted-foreground">
             We do not simply develop applications. We design complete digital ecosystems that
             connect every layer of your operations.
           </p>
-          <p className="mt-4 text-base leading-7 text-primary-foreground/85">
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
             Our goal is to create technology that becomes part of the organization&apos;s
             infrastructure.
           </p>
@@ -40,11 +42,14 @@ export function Ecosystem() {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {chain.map((item, index) => (
               <div key={item} className="flex items-center gap-2 sm:gap-3">
-                <span className="rounded-lg bg-primary-foreground/10 px-4 py-2.5 text-sm font-semibold sm:text-base">
+                <motion.span
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="glass-card cursor-default px-4 py-2.5 text-sm font-semibold sm:text-base"
+                >
                   {item}
-                </span>
+                </motion.span>
                 {index < chain.length - 1 && (
-                  <span className="text-gold text-lg font-light" aria-hidden>
+                  <span className="text-primary text-lg font-light" aria-hidden>
                     →
                   </span>
                 )}
