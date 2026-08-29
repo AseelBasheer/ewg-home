@@ -27,8 +27,8 @@ export function Philosophy() {
               <span
                 className={`inline-block rounded-full px-5 py-2.5 text-sm font-semibold sm:text-base ${
                   index === principles.length - 1
-                    ? "bg-gold/15 text-gold border border-gold/30"
-                    : "bg-primary/10 text-primary border border-primary/20"
+                    ? "border border-silver/50 bg-card text-silver"
+                    : "border border-primary/50 bg-primary text-primary-foreground"
                 }`}
               >
                 {principle}

@@ -39,10 +39,10 @@ const documentTypes = [
 ];
 
 const statusDistribution = [
-  { name: "Approved", value: 45, color: "#1a3a6b" },
-  { name: "In Review", value: 28, color: "#2d5aa0" },
-  { name: "Pending", value: 18, color: "#c9a227" },
-  { name: "Archived", value: 9, color: "#94a3b8" },
+  { name: "Approved", value: 45, color: "#00b8e8" },
+  { name: "In Review", value: 28, color: "#38bdf8" },
+  { name: "Pending", value: 18, color: "#94a3b8" },
+  { name: "Archived", value: 9, color: "#64748b" },
 ];
 
 const kpis = [
@@ -177,23 +177,23 @@ export function PlatformDashboard() {
                       <AreaChart data={transactionData}>
                         <defs>
                           <linearGradient id="volumeGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#1a3a6b" stopOpacity={0.3} />
-                            <stop offset="100%" stopColor="#1a3a6b" stopOpacity={0} />
+                            <stop offset="0%" stopColor="#00b8e8" stopOpacity={0.3} />
+                            <stop offset="100%" stopColor="#00b8e8" stopOpacity={0} />
                           </linearGradient>
                           <linearGradient id="processedGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#c9a227" stopOpacity={0.3} />
-                            <stop offset="100%" stopColor="#c9a227" stopOpacity={0} />
+                            <stop offset="0%" stopColor="#94a3b8" stopOpacity={0.3} />
+                            <stop offset="100%" stopColor="#94a3b8" stopOpacity={0} />
                           </linearGradient>
                         </defs>
-                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
-                        <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="#94a3b8" />
-                        <YAxis tick={{ fontSize: 12 }} stroke="#94a3b8" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.15)" />
+                        <XAxis dataKey="month" tick={{ fontSize: 12, fill: "#94a3b8" }} stroke="#475569" />
+                        <YAxis tick={{ fontSize: 12, fill: "#94a3b8" }} stroke="#475569" />
                         <Tooltip content={<ChartTooltip />} />
                         <Area
                           type="monotone"
                           dataKey="volume"
                           name="Total Volume"
-                          stroke="#1a3a6b"
+                          stroke="#00b8e8"
                           fill="url(#volumeGrad)"
                           strokeWidth={2}
                         />
@@ -201,7 +201,7 @@ export function PlatformDashboard() {
                           type="monotone"
                           dataKey="processed"
                           name="Auto-Processed"
-                          stroke="#c9a227"
+                          stroke="#94a3b8"
                           fill="url(#processedGrad)"
                           strokeWidth={2}
                         />
@@ -217,13 +217,13 @@ export function PlatformDashboard() {
                     </p>
                     <ResponsiveContainer width="100%" height={280}>
                       <BarChart data={documentTypes} layout="vertical">
-                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" horizontal={false} />
-                        <XAxis type="number" tick={{ fontSize: 12 }} stroke="#94a3b8" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.15)" horizontal={false} />
+                        <XAxis type="number" tick={{ fontSize: 12, fill: "#94a3b8" }} stroke="#475569" />
                         <YAxis
                           type="category"
                           dataKey="type"
-                          tick={{ fontSize: 12 }}
-                          stroke="#94a3b8"
+                          tick={{ fontSize: 12, fill: "#94a3b8" }}
+                          stroke="#475569"
                           width={80}
                         />
                         <Tooltip content={<ChartTooltip />} />
@@ -231,7 +231,7 @@ export function PlatformDashboard() {
                           {documentTypes.map((_, i) => (
                             <Cell
                               key={i}
-                              fill={i % 2 === 0 ? "#1a3a6b" : "#2d5aa0"}
+                              fill={i % 2 === 0 ? "#00b8e8" : "#38bdf8"}
                             />
                           ))}
                         </Bar>

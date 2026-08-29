@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AppProviders } from "@/components/app-providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,13 +41,34 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("ewg-theme");
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  } catch (e) {
+    document.documentElement.classList.add("dark");
+  }
+})();
+`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen font-sans">{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-screen font-sans">
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   );
 }

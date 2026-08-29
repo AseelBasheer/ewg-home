@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next dev --port 43123 --hostname 0.0.0.0",
     "build": "next build --webpack",
-    "start": "next start --port 43123 --hostname 0.0.0.0",
+    "preview": "npm run build && python3 -m http.server 43127 --bind 0.0.0.0",
+    "start": "npm run preview",
     "lint": "eslint"
   },
   "dependencies": {

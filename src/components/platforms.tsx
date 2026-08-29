@@ -75,12 +75,12 @@ export function Platforms() {
     <section id="platforms" className="section-glow relative border-t border-border/60 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <Badge variant="outline" className="mb-4 border-primary/40 bg-primary/10 text-primary">
+          <Badge variant="outline" className="mb-4">
             Our Platforms
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             One Digital Ecosystem.{" "}
-            <span className="gradient-text">Multiple Business Solutions.</span>
+            <span className="text-primary">Multiple Business Solutions.</span>
           </h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
             East West Global develops modular platforms that can be customized to meet the
@@ -102,8 +102,8 @@ export function Platforms() {
                   className={cn(
                     "flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-300",
                     isActive
-                      ? "border-primary/50 bg-primary/15 text-primary shadow-lg shadow-primary/10"
-                      : "border-border/60 bg-card/50 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                      ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "border-border/60 bg-card text-muted-foreground hover:border-primary/40 hover:text-primary"
                   )}
                 >
                   <Icon className="h-4 w-4" />
@@ -125,7 +125,7 @@ export function Platforms() {
               className="glass-card glow-cyan p-8 sm:p-10"
             >
               <div className="flex items-start gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/15 text-primary">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/50 bg-primary text-primary-foreground">
                   <ActiveIcon className="h-7 w-7" />
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export function Platforms() {
                     {active.capabilities.map((capability) => (
                       <li
                         key={capability}
-                        className="flex items-center gap-2 rounded-lg border border-primary/10 bg-primary/5 px-3 py-2 text-sm text-foreground/90"
+                        className="flex items-center gap-2 rounded-lg border border-primary/50 bg-primary px-3 py-2 text-sm text-primary-foreground"
                       >
                         <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
                         {capability}

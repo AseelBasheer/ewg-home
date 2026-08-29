@@ -209,7 +209,7 @@ export function Services() {
                 >
                   <AccordionTrigger className="py-5 text-base hover:no-underline sm:text-lg">
                     <span className="flex items-start gap-3 text-left">
-                      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                         <Icon className="h-4 w-4" />
                       </span>
                       <span className="flex flex-col gap-0.5">
@@ -242,7 +242,7 @@ export function Services() {
                       <div className="mt-4 flex flex-wrap items-center gap-2">
                         {solution.workflowSteps.map((step, index) => (
                           <span key={step} className="flex items-center gap-2">
-                            <span className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-medium text-foreground">
+                            <span className="rounded-full border border-primary/50 bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
                               {step}
                             </span>
                             {index < solution.workflowSteps!.length - 1 && (

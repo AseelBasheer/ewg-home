@@ -58,6 +58,11 @@ export function NetworkBackground() {
       const h = canvas.offsetHeight;
       const mouse = mouseRef.current;
 
+      const isDark = document.documentElement.classList.contains("dark");
+      const lineColor = isDark ? "0, 180, 232" : "0, 130, 180";
+      const nodeColor = isDark ? "0, 180, 232" : "0, 130, 180";
+      const nodeHoverColor = isDark ? "0, 200, 240" : "0, 150, 200";
+
       ctx.clearRect(0, 0, w, h);
 
       for (const node of nodes) {
@@ -89,7 +94,7 @@ export function NetworkBackground() {
           if (dist < 150) {
             const alpha = (1 - dist / 150) * 0.25;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 180, 232, ${alpha})`;
+            ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -107,8 +112,8 @@ export function NetworkBackground() {
         ctx.beginPath();
         ctx.arc(node.x, node.y, nearMouse ? node.radius * 1.8 : node.radius, 0, Math.PI * 2);
         ctx.fillStyle = nearMouse
-          ? "rgba(0, 200, 240, 0.8)"
-          : "rgba(0, 180, 232, 0.45)";
+          ? `rgba(${nodeHoverColor}, 0.8)`
+          : `rgba(${nodeColor}, 0.45)`;
         ctx.fill();
       }
 
@@ -140,7 +145,7 @@ export function NetworkBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-auto absolute inset-0 h-full w-full opacity-70"
+      className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-70"
       aria-hidden
     />
   );

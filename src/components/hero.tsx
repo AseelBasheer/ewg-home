@@ -55,7 +55,7 @@ export function Hero() {
           >
             <Badge
               variant="outline"
-              className="mb-6 border-primary/40 bg-primary/10 px-4 py-1 text-xs font-medium tracking-widest text-primary uppercase"
+              className="mb-6 px-4 py-1.5 text-xs font-medium tracking-widest uppercase"
             >
               Digital Infrastructure for Trade &amp; Enterprise
             </Badge>
@@ -70,7 +70,7 @@ export function Hero() {
             We design secure digital platforms that{" "}
             <span className="text-primary">automate</span> complex operations,{" "}
             <span className="text-silver">connect</span> organizations, and{" "}
-            <span className="gradient-text">transform</span> data into intelligent business
+            <span className="text-primary">transform</span> data into intelligent business
             processes.
           </motion.h1>
 
@@ -124,7 +124,7 @@ export function Hero() {
               transition={{ type: "spring", stiffness: 400 }}
               className="flex flex-col items-center gap-2"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary shadow-lg shadow-primary/10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/50 bg-primary text-primary-foreground shadow-lg shadow-primary/20">
                 <Icon className="h-5 w-5" />
               </div>
               <span className="text-xs font-semibold tracking-wider text-silver uppercase">

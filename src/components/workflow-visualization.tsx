@@ -199,7 +199,7 @@ export function WorkflowVisualization() {
               className="mx-auto max-w-2xl rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8"
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                   <Icon className="h-6 w-6" />
                 </div>
                 <div className="flex-1">

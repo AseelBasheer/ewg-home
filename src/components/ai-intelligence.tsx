@@ -90,8 +90,8 @@ export function AiIntelligence() {
                   <div
                     className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${
                       index % 2 === 0
-                        ? "bg-primary/10 text-primary"
-                        : "bg-gold/15 text-gold"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-card text-silver border border-silver/30"
                     }`}
                   >
                     <Icon className="h-5 w-5" />
@@ -113,7 +113,7 @@ export function AiIntelligence() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {dataFlow.map((step, index) => (
               <span key={step} className="flex items-center gap-2 sm:gap-3">
-                <span className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-2.5 text-sm font-semibold text-foreground sm:text-base">
+                <span className="rounded-lg border border-primary/50 bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground sm:text-base">
                   {step}
                 </span>
                 {index < dataFlow.length - 1 && (

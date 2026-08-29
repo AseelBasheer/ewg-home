@@ -56,8 +56,8 @@ export function WhyUs() {
                 <div
                   className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg text-sm font-bold ${
                     index % 2 === 0
-                      ? "bg-primary/10 text-primary"
-                      : "bg-gold/15 text-gold"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card text-silver border border-silver/30"
                   }`}
                 >
                   {String(index + 1).padStart(2, "0")}

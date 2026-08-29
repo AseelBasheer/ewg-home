@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -80,15 +81,16 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-all",
+                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 activeSection === link.href
-                  ? "bg-primary/15 text-primary"
-                  : "text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
               )}
             >
               {link.label}
             </a>
           ))}
+          <ThemeToggle className="ml-1" />
           <a
             href="#contact"
             className={cn(buttonVariants({ size: "sm" }), "btn-glow ml-2 bg-primary hover:bg-primary/90")}
@@ -97,7 +99,9 @@ export function Header() {
           </a>
         </nav>
 
-        <button
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
           type="button"
           className="inline-flex items-center justify-center rounded-md p-2 text-foreground lg:hidden"
           aria-label="Toggle menu"
@@ -117,6 +121,7 @@ export function Header() {
             )}
           </svg>
         </button>
+        </div>
       </div>
 
       <div
@@ -133,14 +138,20 @@ export function Header() {
               className={cn(
                 "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                 activeSection === link.href
-                  ? "bg-primary/15 text-primary"
-                  : "text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
               )}
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </a>
           ))}
+          <div className="mt-2 flex items-center gap-2">
+            <ThemeToggle />
+            <span className="text-sm text-muted-foreground">
+              Toggle light / dark mode
+            </span>
+          </div>
           <a
             href="#contact"
             className={cn(buttonVariants({ size: "sm", className: "btn-glow mt-2" }))}

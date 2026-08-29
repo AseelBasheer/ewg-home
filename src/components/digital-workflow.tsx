@@ -45,7 +45,7 @@ function ProcessColumn({
     >
       <h3
         className={`text-lg font-semibold ${
-          isEwg ? "text-primary" : "text-foreground"
+          isEwg ? "text-foreground" : "text-foreground"
         }`}
       >
         {title}
@@ -57,8 +57,8 @@ function ProcessColumn({
             <span
               className={`w-full rounded-lg px-4 py-3 text-center text-sm font-medium sm:text-base ${
                 isEwg
-                  ? "border border-primary/20 bg-background text-foreground"
-                  : "border border-border/60 bg-muted/50 text-muted-foreground"
+                  ? "border border-primary/50 bg-primary text-primary-foreground"
+                  : "border border-border/60 bg-card text-foreground"
               }`}
             >
               {step}

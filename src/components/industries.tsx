@@ -76,12 +76,12 @@ export function Industries() {
 
             return (
               <StaggerItem key={industry.title}>
-                <article className="flex h-full flex-col rounded-xl border border-border/60 bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+                <article className="glass-card flex h-full flex-col p-6">
                   <div
                     className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${
                       index % 2 === 0
-                        ? "bg-primary/10 text-primary"
-                        : "bg-gold/15 text-gold"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-card text-silver border border-silver/30"
                     }`}
                   >
                     <Icon className="h-5 w-5" />
