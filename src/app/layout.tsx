@@ -14,28 +14,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ewglobal-llc.com"),
-  title: "East West Global LLC | Data Automation & Digital Transformation",
+  title: "East West Global LLC | Digital Infrastructure for Trade & Enterprise",
   description:
-    "East West Global LLC specializes in data automation and digital transformation of commercial attachments — building secure, unified platforms for government agencies and overseas commercial entities.",
+    "East West Global LLC designs secure digital platforms that automate complex operations, connect organizations, and transform data into intelligent business processes.",
   keywords: [
-    "data automation",
-    "digital transformation",
-    "commercial attachments",
+    "digital infrastructure",
+    "trade technology",
+    "trade automation",
+    "customs automation",
     "workflow automation",
-    "business process automation",
+    "business intelligence",
     "East West Global",
   ],
   openGraph: {
-    title: "East West Global LLC | Data Automation & Digital Transformation",
+    title: "East West Global LLC | Digital Infrastructure for Trade & Enterprise",
     description:
-      "Advanced technical solutions for information management, workflow automation, and digital systems for commercial attachments.",
+      "Secure digital platforms for international trade, customs automation, and enterprise operations.",
     url: "https://ewglobal-llc.com",
     siteName: "East West Global LLC",
     type: "website",
-    images: [{ url: "/logo.jpg", width: 800, height: 600, alt: "East West Global LLC" }],
+    images: [{ url: "/logo.png", width: 1774, height: 887, alt: "East West Global LLC" }],
   },
   icons: {
-    icon: "/logo.jpg",
+    icon: "/logo.png",
   },
 };
 

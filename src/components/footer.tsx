@@ -13,10 +13,12 @@ export function Footer() {
           <nav className="flex flex-wrap justify-center gap-6">
             {[
               { href: "#about", label: "About" },
-              { href: "#dashboard", label: "Platform" },
-              { href: "#workflow", label: "Workflow" },
-              { href: "#services", label: "Services" },
-              { href: "#vision", label: "Vision" },
+              { href: "#why-us", label: "Why Us" },
+              { href: "#services", label: "Solutions" },
+              { href: "#platforms", label: "Platforms" },
+              { href: "#approach", label: "Approach" },
+              { href: "#ai-intelligence", label: "AI & Data" },
+              { href: "#security", label: "Security" },
               { href: "#contact", label: "Contact" },
             ].map((link) => (
               <a
@@ -32,18 +34,35 @@ export function Footer() {
 
         <Separator className="my-8" />
 
-        <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} East West Global LLC. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <p className="text-sm font-medium text-foreground">
+              East West Global LLC
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Data Automation | Digital Transformation | Intelligent Systems
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              We build technology that connects operations, data, and decisions.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              &copy; {currentYear} East West Global LLC
+            </p>
+          </div>
+          <div className="text-sm text-muted-foreground">
+            <a
+              href="mailto:info@ewglobal-llc.com"
+              className="block transition-colors hover:text-foreground"
+            >
+              info@ewglobal-llc.com
+            </a>
             <a
               href="https://ewglobal-llc.com"
-              className="transition-colors hover:text-foreground"
+              className="mt-1 block transition-colors hover:text-foreground"
             >
               ewglobal-llc.com
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

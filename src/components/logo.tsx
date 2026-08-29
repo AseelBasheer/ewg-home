@@ -6,13 +6,13 @@ type LogoProps = {
   size?: "sm" | "md" | "lg" | "xl";
 };
 
-const LOGO_ASPECT = 1320 / 1040;
+const LOGO_ASPECT = 1774 / 887;
 
 const heights = {
-  sm: 44,
-  md: 56,
-  lg: 96,
-  xl: 160,
+  sm: 40,
+  md: 52,
+  lg: 120,
+  xl: 220,
 };
 
 export function Logo({ className, size = "md" }: LogoProps) {
@@ -21,8 +21,8 @@ export function Logo({ className, size = "md" }: LogoProps) {
 
   return (
     <Image
-      src="/logo.jpg"
-      alt="East West Global LLC"
+      src="/logo.png"
+      alt="East West Global LLC — Automate. Connect. Transform."
       width={width}
       height={height}
       className={cn("h-auto w-auto object-contain", className)}

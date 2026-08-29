@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#dashboard", label: "Platform" },
-  { href: "#workflow", label: "Workflow" },
-  { href: "#services", label: "Services" },
-  { href: "#vision", label: "Vision" },
+  { href: "#why-us", label: "Why Us" },
+  { href: "#services", label: "Solutions" },
+  { href: "#platforms", label: "Platforms" },
+  { href: "#approach", label: "Approach" },
+  { href: "#technology", label: "Technology" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -24,7 +25,7 @@ export function Header() {
           <Logo size="sm" />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -35,13 +36,13 @@ export function Header() {
             </a>
           ))}
           <a href="#contact" className={buttonVariants({ size: "sm" })}>
-            Get in Touch
+            Request a Consultation
           </a>
         </nav>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-foreground lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setMobileOpen((open) => !open)}
         >
@@ -63,7 +64,7 @@ export function Header() {
 
       <div
         className={cn(
-          "border-t border-border/60 bg-background md:hidden",
+          "border-t border-border/60 bg-background lg:hidden",
           mobileOpen ? "block" : "hidden"
         )}
       >
@@ -83,7 +84,7 @@ export function Header() {
             className={buttonVariants({ size: "sm", className: "mt-2" })}
             onClick={() => setMobileOpen(false)}
           >
-            Get in Touch
+            Request a Consultation
           </a>
         </nav>
       </div>
